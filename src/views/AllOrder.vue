@@ -4,7 +4,7 @@
     <van-search v-model="search" shape="round" placeholder="搜索订单" />
     <van-button block type="primary" @click="sear">搜索</van-button>
   </div>
-  <van-swipe-cell v-for="item in orderList" :key="item.orderNumber">
+  <van-swipe-cell v-for="item in orderList" :key="item.orderNumber" @click="bindOrderDetail(item.orderNumber)">
     <van-card :num="item.number" :price="item.price" :title="item.detail">
       <template #thumb>
         <div class="g-thumb">
@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { useAllOrder } from '@/hooks/allOrder'
-const { bindBack, search, sear, orderList,bindDelete } = useAllOrder()
+const { bindBack, search, sear, orderList,bindDelete,bindOrderDetail} = useAllOrder()
 </script>
 
 <style lang="scss" scoped>

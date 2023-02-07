@@ -21,7 +21,6 @@ export const useDetail = () => {
         goodsId: '',
         detail: '',
     })
-
     const bindBack = () => history.back() // 返回上一页
     /**
      * 获取商品详情

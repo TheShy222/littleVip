@@ -9,7 +9,6 @@ export const useAddressStore = defineStore('address',{
     actions:{
         saveAddress(Address:IAddress){
             this.Address = Address
-            console.log(this.Address)
         }
     },
     persist: {

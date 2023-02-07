@@ -26,13 +26,34 @@ export const RequestGoodsNumberChange = (formData:IOrder):Promise<IResponse> => 
   })
 }
 //订单信息接口
-export const RequestIssueOrder = (pageSize:number,pageNo:number):Promise<IResponse> => {
+export const RequestIssueOrder = (pageSize:number,pageNo:number,phoneNumber:number):Promise<IResponse> => {
   return axiosInstance({
       method: 'get',
       url: '/issueOrder',
       params:{
           pageSize,
           pageNo,
+          phoneNumber
+      }
+  })
+}
+//查询订单通过订单号
+export const RequestIssueOrderByOrderNumber = (orderNumber:number):Promise<IResponse> => {
+  return axiosInstance({
+      method: 'get',
+      url: '/issueOrderByOrderNumber',
+      params:{
+          orderNumber
+      }
+  })
+}
+//删除订单
+export const RequestDeleteOrder = (orderNumber:number):Promise<IResponse> => {
+  return axiosInstance({
+      method: 'get',
+      url: '/deleteOrder',
+      params:{
+          orderNumber
       }
   })
 }
