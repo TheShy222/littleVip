@@ -47,6 +47,26 @@ export const RequestIssueOrderByOrderNumber = (orderNumber:number):Promise<IResp
       }
   })
 }
+//查询未发货订单
+export const RequestSuccessOrder = (orderNumber:number):Promise<IResponse> => {
+  return axiosInstance({
+      method: 'get',
+      url: '/orderSuccess',
+      params:{
+          orderNumber
+      }
+  })
+}
+//查询已发货订单
+export const RequestShippedOrder = (orderNumber:number):Promise<IResponse> => {
+  return axiosInstance({
+      method: 'get',
+      url: '/shippedOrder',
+      params:{
+          orderNumber
+      }
+  })
+}
 //删除订单
 export const RequestDeleteOrder = (orderNumber:number):Promise<IResponse> => {
   return axiosInstance({

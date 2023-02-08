@@ -4,15 +4,26 @@
         <img :src="goods.picture" style="width:100%;height:200px;" :alt="goods.picture">
         <h2>¥{{ goods.price }}</h2>
         <h3>{{ goods.detail }}</h3>
-        <van-button type="warning" @click="bindAddCart">加入购物车</van-button>
-        <van-button type="danger" @click="bindBuy(goods.id)" class="buy">直接购买</van-button>
+        <h4>商品细节</h4>
+        <ul>
+            <li>货号：{{ goods.goodsId }}</li>
+            <li>尺码：{{ goods.size }}</li>
+            <li>品牌：{{goods.brand}}</li>
+        </ul>
+        <van-action-bar>
+            <van-action-bar-icon icon="chat-o" text="客服" color="#ee0a24" />
+            <van-action-bar-icon icon="cart-o" text="购物车" />
+            <van-action-bar-icon icon="star" text="已收藏" color="#ff5000" />
+            <van-action-bar-button type="warning" text="加入购物车" @click="bindAddCart()"/>
+            <van-action-bar-button type="danger" text="立即购买" @click="bindBuy()"/>
+        </van-action-bar>
     </div>
 
 </template>
 
 <script setup lang="ts">
 import { useDetail } from '@/hooks/detail'
-const { bindBack, goods, bindAddCart,bindBuy } = useDetail()
+const { bindBack, goods, bindAddCart, bindBuy } = useDetail()
 
 </script>
 
@@ -23,10 +34,5 @@ h2 {
     background-color: rgb(239, 76, 111);
     color: aliceblue;
 }
-.van-button{
-    margin-top: 240px;
-}
-.buy{
-    margin-left: 180px;
-}
+
 </style>

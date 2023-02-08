@@ -3,7 +3,7 @@ import type{ IAccount} from '@/types/types'
 export const useAccountStore = defineStore('account',{
     state(){
         return {
-            account:{id:0,name:'',phoneNumber:'',password:'',url:'',integral:0}
+            account:{id:0,name:'',phoneNumber:'',password:'',url:'https://pic.ntimg.cn/file/20200718/31394912_120518711441_2.jpg',integral:0}
         }
     },
     actions:{

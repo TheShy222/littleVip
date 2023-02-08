@@ -83,4 +83,5 @@ export interface IOrder{
     id:number
     detail:string
     url:string //图片地址
+    express:string
 }

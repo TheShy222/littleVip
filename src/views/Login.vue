@@ -1,11 +1,12 @@
 <template>
     <van-nav-bar
-        title="登录界面"
         left-text="返回"
         left-arrow
         @click-left="bindBack"
     />
+    
     <van-form @submit="onSubmit">
+        <img src="public/logo.png" alt=""/>
         <van-cell-group inset>
             <van-field
                 v-model="phoneNumber"
@@ -24,8 +25,8 @@
             />
         </van-cell-group>
         <div style="margin: 16px">
-            <van-button round block type="primary" native-type="submit">
-                确定
+            <van-button round block type="success" native-type="submit">
+                登录
             </van-button>
         </div>
     </van-form>
@@ -36,4 +37,10 @@ import { useAccount } from '@/hooks/login'
 const {phoneNumber,password ,bindBack,onSubmit } = useAccount()
 </script>
 
-<style scoped></style>
+<style scoped>
+img{
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-bottom: 50px;
+}
+</style>

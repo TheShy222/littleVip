@@ -1,55 +1,63 @@
 <template>
   <div class="top">
     <van-icon name="arrow-left" @click="bindBack" size="30" />
-    <van-search v-model="search" shape="round" placeholder="搜索订单" />
-    <van-button block type="primary" @click="sear">搜索</van-button>
+    <img src="public/5.jpg" alt="" style="width:320px;height: inherit;margin-left: 35px;">
   </div>
-  <van-swipe-cell v-for="item in orderList" :key="item.orderNumber" @click="bindOrderDetail(item.orderNumber)">
-    <van-card :num="item.number" :price="item.price" :title="item.detail">
-      <template #thumb>
-        <div class="g-thumb">
-          <van-image :src="item.url" width="80%"></van-image>
-        </div>
-      </template>
-      <template #footer>
-        <span>实付款￥{{ item.price * item.number }}</span>
-      </template>
-    </van-card>
-    <template #right>
-      <van-button square text="删除" type="danger" @click="bindDelete(item.orderNumber)" class="dele"/>
-    </template>
-  </van-swipe-cell>
+  <van-tabs v-model:active="active">
+    <van-tab title="全部">
+      <orderType></orderType>
+    </van-tab>
+    <van-tab title="待付款">
+      <div class="pay">
+        <h2>暂无订单</h2>
+        <h3>找不到订单？试试<span>查看全部</span>或者<span>查看帮助</span>
+        </h3>
+      </div>
+    </van-tab>
+    <van-tab title="待发货">
+      <orderSuccess></orderSuccess>
+    </van-tab>
+    <van-tab title="待收货">
+      <shippedOrder></shippedOrder>
+    </van-tab>
+    <van-tab title="已完成">
+      <orderType></orderType>
+    </van-tab>
+  </van-tabs>
+
 </template>
 
 <script setup lang="ts">
 import { useAllOrder } from '@/hooks/allOrder'
-const { bindBack, search, sear, orderList,bindDelete,bindOrderDetail} = useAllOrder()
+import orderType from '@/components/orderType.vue'
+import orderSuccess from '@/components/orderSuccess.vue'
+import shippedOrder from '@/components/shippedOrder.vue'
+const { active, bindBack, search} = useAllOrder()
 </script>
 
 <style lang="scss" scoped>
 .top {
   width: 100%;
-  height: 30px;
+  height: 50px;
   display: flex;
-  background-color: slateblue;
 
   .van-icon {
     width: 20px;
+    margin-top: 8px;
   }
-
   .van-search {
     flex: 1;
     border-right: 0;
-    background-color: slateblue;
   }
-
   .van-button {
     width: 60px;
     height: 30px;
     border-left: 0;
   }
 }
-.dele{
-  height: 100%;
+
+.pay {
+  text-align: center;
+  margin-top: 50px;
 }
 </style>

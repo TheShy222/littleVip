@@ -52,7 +52,7 @@ export const useDetail = () => {
     /**
      * 直接购买
      */
-    const bindBuy = (id: number) => {
+    const bindBuy = () => {
         // 跳转到购买详情页
         const cartGoods: ICartGoods = {
             id: goods.value.id,

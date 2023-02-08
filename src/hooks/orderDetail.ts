@@ -9,6 +9,7 @@ export const useOrderDetail = () => {
   const router = useRouter()
   const orderNumber: any = route.query.orderNumber
   const bindBack = () => history.back()
+  const active=ref(1)
   //获取订单详情
   const orderDetail: Ref<IOrder> = ref({
     orderNumber: 0,
@@ -22,7 +23,8 @@ export const useOrderDetail = () => {
     size: '',
     id: 0,
     detail: '',
-    url: ''
+    url: '',
+    express:''
   })
   const getOrderDetail = async () => {
     const data = await RequestIssueOrderByOrderNumber(orderNumber)
@@ -42,5 +44,5 @@ export const useOrderDetail = () => {
   onMounted(() => {
     getOrderDetail()
   })
-  return { bindBack, orderDetail, deleteOrder }
+  return { bindBack, orderDetail, deleteOrder,active}
 }

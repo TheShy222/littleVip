@@ -1,5 +1,7 @@
 <template>
-    <van-nav-bar title="购物车" left-text="返回" left-arrow @click-left="bindBack" />
+    <van-sticky :offset-top="0">
+        <van-nav-bar title="购物车" left-text="返回" left-arrow @click-left="bindBack" />
+    </van-sticky>
     <van-swipe-cell v-if=cartStore.list.length v-for="item in cartStore.list" :key="item.id">
         <van-card :num="item.num" :price="item.price" :title="item.detail">
             <template #thumb>
@@ -17,9 +19,7 @@
         </template>
     </van-swipe-cell>
     <div class="none" v-else>
-        <img src="https://img1.baidu.com/it/u=1514470112,2720712187&fm=253&fmt=auto&app=138&f=GIF?w=400&h=456" style="width:100px;height:100px;">
-        <h2>购物车竟然是空的</h2>
-        <h3>再忙，也要记得买点什么犒赏自己</h3>
+        <img src="public/cart.jpg" style="width:100%;height:inherit;">
     </div>
     <van-submit-bar :price="cartStore.totalPrice" button-text="结算" @submit="bindOrderSubmit">
         <van-checkbox :checked="cartStore.stateAll" @click="cartStore.checkAll">全选</van-checkbox>
@@ -35,12 +35,16 @@ const { cartStore, bindBack, bindDelete, bindOrderSubmit } = useCart()
 .g-thumb {
     display: flex;
 }
-.none{
+
+.none {
+    background-color: #e3e3e3;
     text-align: center;
-    h3{
+
+    h3 {
         color: gray;
     }
 }
+
 .delete {
     height: 100%;
 }
