@@ -59,7 +59,8 @@ export interface IAccount{
     id:number
     name:string
     phoneNumber:string
-    password:string
+    password: string
+    address?:string
     url:string
     integral:number
 }
@@ -83,5 +84,5 @@ export interface IOrder{
     id:number
     detail:string
     url:string //图片地址
-    express:string
+    express?:string
 }

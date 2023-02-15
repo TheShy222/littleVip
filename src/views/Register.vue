@@ -4,8 +4,7 @@
         left-arrow
         @click-left="bindBack"
     />
-    
-    <van-form @submit="onSubmit">
+    <van-form @submit="register">
         <img src="public/logo.png" alt=""/>
         <van-cell-group inset>
             <van-field
@@ -25,11 +24,8 @@
             />
         </van-cell-group>
         <div style="margin: 16px">
-            <van-button round block type="primary" @click="toRegister">
-                注册
-            </van-button>
             <van-button round block type="success" native-type="submit">
-                登录
+                确定
             </van-button>
         </div>
     </van-form>
@@ -37,7 +33,7 @@
 
 <script setup lang="ts">
 import { useAccount } from '@/hooks/login'
-const {phoneNumber,password ,bindBack,onSubmit,toRegister } = useAccount()
+const {phoneNumber,password ,bindBack,register} = useAccount()
 </script>
 
 <style scoped>

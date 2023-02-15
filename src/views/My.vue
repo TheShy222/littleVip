@@ -1,12 +1,12 @@
 <template>
 	<div>
-			<div class="user-poster">
-				<img :src="accountStore.account.url" />
-				<h3 @click="toLogin">{{ accountStore.account.name || '登录/注册' }}</h3>
-				<div class="setting">
-					<van-icon name="setting" @click="toSetting" />
-				</div>
+		<div class="user-poster">
+			<img :src="accountStore.account.url" />
+			<h3 @click="toLogin">{{ accountStore.account.name || '登录/注册' }}</h3>
+			<div class="setting">
+				<van-icon name="setting" @click="toSetting" />
 			</div>
+		</div>
 		<div class="user-order" @click="toAllOrder">
 			<span>我的订单</span>
 			<span>全部<van-icon name="arrow" /></span>

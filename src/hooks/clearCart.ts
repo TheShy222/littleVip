@@ -72,7 +72,7 @@ export const useClearCart = () => {
             size: cartStore.list[i].size,
             id: cartStore.list[i].id,
             detail: cartStore.list[i].detail,
-            url: cartStore.list[i].url
+            url: cartStore.list[i].url,
           })
           orderStore.saveOrder(order.value)
           const res = await RequestAddIssueOrder(order.value)
